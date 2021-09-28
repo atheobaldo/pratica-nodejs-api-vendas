@@ -36,22 +36,3 @@ exports.down = async(knex) => {
             .dropTable('fornecedores')
             .dropTable('produtos')
 }
-
-
-
-const knex = require('knex');
-
-exports.up = async(knex) => {
-    return await knex.schema.createTable('dbo_veiculos', (table) => {
-        table.uuid('codigo').primary();
-        table.string('marca').notNullable();
-        table.string('ano').notNullable();
-        table.string('cor').notNullable();
-        table.string('placa').notNullable();
-        table.string('chassi').notNullable();
-    })
-}
-
-exports.down = async(knex) => {
-    return await knex.schema.dropTable('dbo_veiculos');
-}
